@@ -13,4 +13,8 @@
     <Folder Include="Services\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\VehicleExplorer.Domain\VehicleExplorer.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

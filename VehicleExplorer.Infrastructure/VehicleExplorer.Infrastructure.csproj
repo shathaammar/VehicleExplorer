@@ -11,4 +11,9 @@
     <Folder Include="Caching\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\VehicleExplorer.Application\VehicleExplorer.Application.csproj" />
+    <ProjectReference Include="..\VehicleExplorer.Domain\VehicleExplorer.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
