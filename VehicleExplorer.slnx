@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="VehicleExplorer.API/VehicleExplorer.API.csproj" />
+  <Project Path="VehicleExplorer.Application/VehicleExplorer.Application.csproj" />
+  <Project Path="VehicleExplorer.Domain/VehicleExplorer.Domain.csproj" />
+  <Project Path="VehicleExplorer.Infrastructure/VehicleExplorer.Infrastructure.csproj" />
+</Solution>
