@@ -1,6 +1,6 @@
-﻿using VehicleExplorer.Domain.DTOs;
+﻿using VehicleExplorer.Application.DTOs;
 
-namespace VehicleExplorer.Domain.Interfaces;
+namespace VehicleExplorer.Application.Interfaces;
 
 public interface IVehicleService
 {

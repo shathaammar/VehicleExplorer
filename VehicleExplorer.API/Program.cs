@@ -1,3 +1,6 @@
+using VehicleExplorer.Application.Interfaces;
+using VehicleExplorer.Infrastructure.ExternalApi.Clients;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +9,11 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddHttpClient<IVehicleApiClient, VehicleApiClient>(client =>
+{
+    client.BaseAddress = new Uri("https://vpic.nhtsa.dot.gov/api/vehicles/");
+});
 
 var app = builder.Build();
 

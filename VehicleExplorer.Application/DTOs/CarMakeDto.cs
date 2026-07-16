@@ -1,4 +1,4 @@
-﻿namespace VehicleExplorer.Domain.DTOs;
+﻿namespace VehicleExplorer.Application.DTOs;
 
 public class CarMakeDto
 {

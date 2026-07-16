@@ -1,6 +1,6 @@
-﻿namespace VehicleExplorer.Domain.DTOs;
+﻿namespace VehicleExplorer.Application.DTOs;
 
-public class VehicleModelDto
+public class VehicleTypeDto
 {
     public int Id { get; set; }
 
