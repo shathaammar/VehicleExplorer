@@ -17,13 +17,11 @@ public class VehicleApiClient : IVehicleApiClient
 
     public Task<IEnumerable<VehicleTypeDto>> GetVehicleTypesAsync(int makeId)
     {
-        // TODO: implement API call to retrieve vehicle types for a make
         return Task.FromResult(Enumerable.Empty<VehicleTypeDto>());
     }
 
     public Task<IEnumerable<VehicleModelDto>> GetModelsAsync(int makeId, int year, string vehicleType)
     {
-        // TODO: implement API call to retrieve models for a make/year/type
         return Task.FromResult(Enumerable.Empty<VehicleModelDto>());
     }
 
