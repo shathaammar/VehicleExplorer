@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using VehicleExplorer.Application.DTOs;
 using VehicleExplorer.Application.Interfaces;
+using VehicleExplorer.Application.Requests;
 using VehicleExplorer.Application.Responses;
 
 namespace VehicleExplorer.API.Controllers
@@ -26,18 +27,21 @@ namespace VehicleExplorer.API.Controllers
         }
 
         [HttpGet("vehicle-types")]
-        public async Task<IActionResult> GetVehicleTypes([FromQuery] int makeId)
+        public async Task<IActionResult> GetVehicleTypes([FromQuery] GetVehicleTypesRequest request)
         {
-            var vehicleTypes = await _vehicleService.GetVehicleTypesAsync(makeId);
+            var vehicleTypes = await _vehicleService.GetVehicleTypesAsync(request.MakeId);
 
             return Ok(ApiResponse<IEnumerable<VehicleTypeDto>>
                 .SuccessResponse(vehicleTypes, "Vehicle types retrieved successfully."));
         }
 
         [HttpGet("models")]
-        public async Task<IActionResult> GetModels([FromQuery] int makeId, [FromQuery] int year, [FromQuery] string vehicleType)
+        public async Task<IActionResult> GetModels(GetModelsRequest request)
         {
-            var models = await _vehicleService.GetModelsAsync(makeId, year, vehicleType);
+            var models = await _vehicleService.GetModelsAsync(
+                request.MakeId,
+                request.Year,
+                request.VehicleType);
 
             return Ok(ApiResponse<IEnumerable<VehicleModelDto>>
                 .SuccessResponse(models, "Vehicle models retrieved successfully."));

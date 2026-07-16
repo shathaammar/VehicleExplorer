@@ -1,5 +1,8 @@
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using VehicleExplorer.Application.Interfaces;
 using VehicleExplorer.Application.Services;
+using VehicleExplorer.Application.Validators;
 using VehicleExplorer.Infrastructure.ExternalApi.Clients;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +18,9 @@ builder.Services.AddHttpClient<IVehicleApiClient, VehicleApiClient>(client =>
 {
     client.BaseAddress = new Uri("https://vpic.nhtsa.dot.gov/api/vehicles/");
 });
+
+builder.Services.AddValidatorsFromAssemblyContaining<GetModelsRequestValidator>();
+builder.Services.AddFluentValidationAutoValidation();
 
 builder.Services.AddScoped<IVehicleService, VehicleService>();
 
