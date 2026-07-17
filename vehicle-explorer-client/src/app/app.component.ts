@@ -5,11 +5,12 @@ import { SpecPlateComponent } from './features/vehicle-explorer/spec-plate/spec-
 import { SelectionState } from './core/models/selection-state.model';
 import { CarMake } from './core/models/vehicle.models';
 import { YearTypeSelection, YearTypeSelectorComponent } from './features/vehicle-explorer/year-type-selector/year-type-selector.component';
+import { ModelResultsComponent } from "./features/vehicle-explorer/model-results/model-results.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, MakeSelectorComponent, SpecPlateComponent, YearTypeSelectorComponent],
+  imports: [RouterOutlet, MakeSelectorComponent, SpecPlateComponent, YearTypeSelectorComponent, ModelResultsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -25,10 +26,19 @@ export class AppComponent {
 
   onMakeSelected(make: CarMake): void {
   this.selectedMakeId = make.id;
-  this.selection = { ...this.selection, make: make.name, year: null, vehicleType: null, model: null };
+  this.selection = {
+    make: make.name,
+    year: null,
+    vehicleType: null,
+    model: null
+  };
 }
 
 onYearTypeSelected(yearType: YearTypeSelection): void {
   this.selection = { ...this.selection, year: yearType.year, vehicleType: yearType.vehicleType };
+}
+
+onModelSelected(modelName: string): void {
+  this.selection = { ...this.selection, model: modelName };
 }
 }

@@ -5,13 +5,14 @@
   </div>
 
   <input
-    type="number"
-    class="year-input"
-    placeholder="e.g. 2020"
-    [min]="minYear"
-    [max]="maxYear"
-    (input)="onYearChange($any($event.target).value)"
-  />
+  type="number"
+  class="year-input"
+  placeholder="e.g. 2020"
+  [min]="minYear"
+  [max]="maxYear"
+  [value]="year ?? ''"
+  (input)="onYearChange($any($event.target).value)"
+/>
 
   <p class="loading-text" *ngIf="loading">Loading vehicle types...</p>
 

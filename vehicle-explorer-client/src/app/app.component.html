@@ -5,6 +5,12 @@
       [makeId]="selectedMakeId"
       (yearTypeSelected)="onYearTypeSelected($event)">
     </app-year-type-selector>
+    <app-model-results
+      [makeId]="selectedMakeId"
+      [year]="selection.year"
+      [vehicleType]="selection.vehicleType"
+      (modelSelected)="onModelSelected($event)">
+    </app-model-results>
   </div>
   <app-spec-plate [selection]="selection"></app-spec-plate>
 </main>

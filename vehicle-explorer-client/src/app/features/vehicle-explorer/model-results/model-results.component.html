@@ -1,0 +1,23 @@
+<section class="model-results" *ngIf="makeId && year && vehicleType">
+  <div class="step-header">
+    <span class="step-number">03</span>
+    <h2 class="step-title">Available Models</h2>
+  </div>
+
+  <p class="loading-text" *ngIf="loading">Loading models...</p>
+
+  <div class="models-grid" *ngIf="!loading && models.length">
+    <button
+      *ngFor="let model of models"
+      class="model-card"
+      [class.active]="model.id === selectedModelId"
+      (click)="selectModel(model)"
+    >
+      {{ model.name }}
+    </button>
+  </div>
+
+  <p class="empty-text" *ngIf="!loading && !models.length">
+    No models found for this make, year, and vehicle type combination.
+  </p>
+</section>
