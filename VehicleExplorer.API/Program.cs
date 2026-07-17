@@ -24,6 +24,16 @@ builder.Services.AddFluentValidationAutoValidation();
 
 builder.Services.AddScoped<IVehicleService, VehicleService>();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngularClient", policy =>
+    {
+        policy.WithOrigins("http://localhost:4200")
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -34,6 +44,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseMiddleware<VehicleExplorer.API.Middleware.ExceptionHandlingMiddleware>();
+
+app.UseCors("AllowAngularClient");
 
 app.UseHttpsRedirection();
 

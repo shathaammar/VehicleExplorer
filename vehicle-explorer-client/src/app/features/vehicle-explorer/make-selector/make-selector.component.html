@@ -1,1 +1,19 @@
-<p>make-selector works!</p>
+<section class="make-selector">
+  <div class="step-header">
+    <span class="step-number">01</span>
+    <h2 class="step-title">Select Make</h2>
+  </div>
+
+  <select
+    class="make-dropdown"
+    [disabled]="loading"
+    (change)="onMakeChange($any($event.target).value)"
+  >
+    <option value="" disabled selected>
+      {{ loading ? 'Loading makes...' : 'Choose a make' }}
+    </option>
+    <option *ngFor="let make of makes" [value]="make.id">
+      {{ make.name }}
+    </option>
+  </select>
+</section>
