@@ -27,6 +27,8 @@
     </button>
   </div>
 
+  <p class="error-text" *ngIf="errorMessage">{{ errorMessage }}</p>
+
   <p class="empty-text" *ngIf="!loading && !vehicleTypes.length">
     No vehicle types found for this make.
   </p>

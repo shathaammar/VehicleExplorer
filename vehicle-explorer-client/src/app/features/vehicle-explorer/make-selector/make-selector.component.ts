@@ -8,7 +8,7 @@ import { CarMake } from '../../../core/models/vehicle.models';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './make-selector.component.html',
-  styleUrl: './make-selector.component.scss'
+  styleUrls: ['./make-selector.component.scss']
 })
 export class MakeSelectorComponent implements OnInit {
   @Output() makeSelected = new EventEmitter<CarMake>();
@@ -18,6 +18,7 @@ export class MakeSelectorComponent implements OnInit {
   searchTerm = '';
   loading = true;
   selectedMakeId: number | null = null;
+  errorMessage: string | null = null;
 
   constructor(private vehicleService: VehicleService) {}
 
@@ -29,6 +30,7 @@ export class MakeSelectorComponent implements OnInit {
         this.loading = false;
       },
       error: () => {
+        this.errorMessage = 'Could not load car makes. Please check your connection and try again.';
         this.loading = false;
       }
     }); 

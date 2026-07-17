@@ -28,6 +28,8 @@ export class YearTypeSelectorComponent implements OnChanges {
   minYear = 1980;
   maxYear = new Date().getFullYear() + 1;
 
+  errorMessage: string | null = null;
+
   constructor(private vehicleService: VehicleService) {}
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -40,6 +42,7 @@ export class YearTypeSelectorComponent implements OnChanges {
           this.loading = false;
         },
         error: () => {
+          this.errorMessage = 'Could not load vehicle types. Please try again.';
           this.loading = false;
         }
       });

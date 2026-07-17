@@ -5,10 +5,17 @@
   margin: 0 auto;
   padding: 2rem;
   align-items: flex-start;
+
+  @media (max-width: 768px) {
+    flex-direction: column-reverse;
+    padding: 1rem;
+    gap: 1rem;
+  }
 }
 
 .steps-column {
   flex: 1;
   display: flex;
   flex-direction: column;
+  min-width: 0; 
 }

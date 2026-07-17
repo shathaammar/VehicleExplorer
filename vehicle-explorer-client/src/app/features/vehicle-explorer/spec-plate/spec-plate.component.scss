@@ -6,6 +6,12 @@
   min-width: 260px;
   position: sticky;
   top: 2rem;
+
+  @media (max-width: 768px) {
+    position: static;
+    width: 100%;
+    min-width: 0;
+  }
 }
 
 .plate-header {

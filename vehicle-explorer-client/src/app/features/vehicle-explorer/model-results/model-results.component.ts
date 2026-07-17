@@ -20,6 +20,8 @@ export class ModelResultsComponent implements OnChanges {
   loading = false;
   selectedModelId: number | null = null;
 
+  errorMessage: string | null = null;
+
   constructor(private vehicleService: VehicleService) {}
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -32,8 +34,9 @@ export class ModelResultsComponent implements OnChanges {
           this.loading = false;
         },
         error: () => {
-          this.loading = false;
-        }
+        this.errorMessage = 'Could not load models. Please try again.';
+        this.loading = false;
+      }
       });
     }
   }

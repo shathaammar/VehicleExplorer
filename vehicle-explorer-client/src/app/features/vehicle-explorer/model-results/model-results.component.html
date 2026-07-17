@@ -17,6 +17,8 @@
     </button>
   </div>
 
+  <p class="error-text" *ngIf="errorMessage">{{ errorMessage }}</p>
+
   <p class="empty-text" *ngIf="!loading && !models.length">
     No models found for this make, year, and vehicle type combination.
   </p>

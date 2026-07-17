@@ -1,5 +1,9 @@
 .make-selector {
   padding: 2rem;
+
+  @media (max-width: 768px) {
+    padding: 1.25rem;
+  }
 }
 
 .step-header {
@@ -52,4 +56,11 @@
 .loading-text {
   font-family: var(--font-mono);
   color: var(--color-hairline);
+}
+
+.error-text {
+  font-family: var(--font-mono);
+  color: #E85D5D;
+  font-size: 0.85rem;
+  margin-top: 0.75rem;
 }

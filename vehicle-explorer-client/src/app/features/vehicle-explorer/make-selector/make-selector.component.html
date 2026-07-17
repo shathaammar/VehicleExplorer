@@ -9,6 +9,9 @@
     [disabled]="loading"
     (change)="onMakeChange($any($event.target).value)"
   >
+
+  <p class="error-text" *ngIf="errorMessage">{{ errorMessage }}</p>
+  
     <option value="" disabled selected>
       {{ loading ? 'Loading makes...' : 'Choose a make' }}
     </option>
