@@ -1,3 +1,4 @@
 <main class="app-shell">
-  <app-make-selector></app-make-selector>
+  <app-make-selector (makeSelected)="onMakeSelected($event)"></app-make-selector>
+  <app-spec-plate [selection]="selection"></app-spec-plate>
 </main>
