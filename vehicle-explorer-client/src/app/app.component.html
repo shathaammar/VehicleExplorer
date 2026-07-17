@@ -1,4 +1,10 @@
 <main class="app-shell">
-  <app-make-selector (makeSelected)="onMakeSelected($event)"></app-make-selector>
+  <div class="steps-column">
+    <app-make-selector (makeSelected)="onMakeSelected($event)"></app-make-selector>
+    <app-year-type-selector
+      [makeId]="selectedMakeId"
+      (yearTypeSelected)="onYearTypeSelected($event)">
+    </app-year-type-selector>
+  </div>
   <app-spec-plate [selection]="selection"></app-spec-plate>
 </main>
