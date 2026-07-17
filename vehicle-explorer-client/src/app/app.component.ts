@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
-import { MakeSelectorComponent } from "./features/vehicle-explorer/make-selector/make-selector.component";
+import { RouterOutlet } from '@angular/router';
+import { MakeSelectorComponent } from './features/vehicle-explorer/make-selector/make-selector.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
+  imports: [RouterOutlet, MakeSelectorComponent],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  imports: [MakeSelectorComponent]
+  styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'vehicle-explorer-client';
