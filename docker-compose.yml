@@ -1,0 +1,20 @@
+services:
+
+  vehicle-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: vehicle-api-container
+    ports:
+      - "8080:8080"
+
+
+  vehicle-client:
+    build:
+      context: ./vehicle-explorer-client
+      dockerfile: Dockerfile
+    container_name: vehicle-client-container
+    ports:
+      - "4200:80"
+    depends_on:
+      - vehicle-api
