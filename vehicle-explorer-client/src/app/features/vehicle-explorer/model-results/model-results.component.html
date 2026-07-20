@@ -1,25 +1,47 @@
-<section class="model-results" *ngIf="makeId && year && vehicleType">
-  <div class="step-header">
-    <span class="step-number">03</span>
-    <h2 class="step-title">Available Models</h2>
+<section class="model-results">
+  <div class="placeholder" *ngIf="!hasSearched">
+    <p class="placeholder-text">
+      Select a make, vehicle type, and year above, then press
+      <strong>Search</strong> to see the matching models in a table here.
+    </p>
   </div>
 
-  <p class="loading-text" *ngIf="loading">Loading models...</p>
+  <ng-container *ngIf="hasSearched">
+    <div class="results-header">
+      <div class="results-title">
+        <span class="results-icon">🔍</span>
+        <div>
+          <h2>Search Results</h2>
+          <p>{{ models.length }} result{{ models.length === 1 ? '' : 's' }} found</p>
+        </div>
+      </div>
+      <span class="filters-badge">⚙ 3 Filters Applied</span>
+    </div>
 
-  <div class="models-grid" *ngIf="!loading && models.length">
-    <button
-      *ngFor="let model of models"
-      class="model-card"
-      [class.active]="model.id === selectedModelId"
-      (click)="selectModel(model)"
-    >
-      {{ model.name }}
-    </button>
-  </div>
+    <p class="loading-text" *ngIf="loading">Loading models...</p>
 
-  <p class="error-text" *ngIf="errorMessage">{{ errorMessage }}</p>
+    <table class="models-table" *ngIf="!loading && models.length">
+      <thead>
+        <tr>
+          <th></th>
+          <th>ID</th>
+          <th>Model Name</th>
+          <th>Vehicle Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let model of models">
+          <td class="cell-id">{{ model.id }}</td>
+          <td>{{ model.name }}</td>
+          <td>{{ searchCriteria?.vehicleType }}</td>
+        </tr>
+      </tbody>
+    </table>
 
-  <p class="empty-text" *ngIf="!loading && !models.length">
-    No models found for this make, year, and vehicle type combination.
-  </p>
+    <p class="empty-text" *ngIf="!loading && !models.length && !errorMessage">
+      No models found for this combination.
+    </p>
+
+    <p class="error-text" *ngIf="errorMessage">{{ errorMessage }}</p>
+  </ng-container>
 </section>

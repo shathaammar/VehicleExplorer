@@ -1,16 +1,11 @@
 <main class="app-shell">
-  <div class="steps-column">
-    <app-make-selector (makeSelected)="onMakeSelected($event)"></app-make-selector>
-    <app-year-type-selector
-      [makeId]="selectedMakeId"
-      (yearTypeSelected)="onYearTypeSelected($event)">
-    </app-year-type-selector>
-    <app-model-results
-      [makeId]="selectedMakeId"
-      [year]="selection.year"
-      [vehicleType]="selection.vehicleType"
-      (modelSelected)="onModelSelected($event)">
-    </app-model-results>
-  </div>
-  <app-spec-plate [selection]="selection"></app-spec-plate>
+  <header class="hero">
+    <h1 class="hero-title">Find Your <span class="hero-highlight">Vehicle</span></h1>
+    <p class="hero-subtitle">
+      Search by make, vehicle type, and year to explore models and find exactly what you need.
+    </p>
+  </header>
+
+  <app-filter-bar (search)="onSearch($event)"></app-filter-bar>
+  <app-model-results [searchCriteria]="searchCriteria"></app-model-results>
 </main>

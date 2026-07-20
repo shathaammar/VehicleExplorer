@@ -1,0 +1,32 @@
+<section class="filter-bar">
+  <div class="filter-field">
+    <label>Car Make</label>
+    <div class="input-wrap">
+      <select [(ngModel)]="selectedMakeId" [disabled]="loadingMakes" (ngModelChange)="onMakeChange()">
+        <option [ngValue]="null" disabled selected>{{ loadingMakes ? 'Loading...' : 'Choose make' }}</option>
+        <option *ngFor="let make of makes" [ngValue]="make.id">{{ make.name }}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="filter-field">
+    <label>Vehicle Type</label>
+    <div class="input-wrap">
+      <select [(ngModel)]="selectedType" [disabled]="!selectedMakeId || loadingTypes">
+        <option [ngValue]="null" disabled selected>{{ loadingTypes ? 'Loading...' : 'Choose type' }}</option>
+        <option *ngFor="let type of vehicleTypes" [ngValue]="type.name">{{ type.name }}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="filter-field">
+    <label>Year</label>
+    <div class="input-wrap">
+      <input type="number" placeholder="e.g. 2020" [(ngModel)]="year" />
+    </div>
+  </div>
+
+  <button class="search-btn" [disabled]="!canSearch" (click)="onSearch()">
+    Search
+  </button>
+</section>

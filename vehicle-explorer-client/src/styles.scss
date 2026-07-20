@@ -1,12 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
 :root {
   // Colors
-  --color-bg: #10172A;
-  --color-panel: #1B2740;
-  --color-text: #EDEFF4;
-  --color-accent: #F5A623;
+  --color-bg: #0A0E1A;
+  --color-panel: #131829;
+  --color-text: #F4F5F7;
+  --color-text-muted: #8B93A7;
+  --color-accent-start: #8B5CF6;
+  --color-accent-end: #3B82F6;
+  --color-accent: #8B5CF6;
   --color-success: #2DD4BF;
-  --color-hairline: #34405C;
+  --color-hairline: #262C47;
 
   // Typography
   --font-display: 'Space Grotesk', sans-serif;
