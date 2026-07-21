@@ -7,6 +7,17 @@ using VehicleExplorer.Infrastructure.ExternalApi.Clients;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngular",
+        policy =>
+        {
+            policy.WithOrigins("http://16.170.222.124:4200")
+                  .AllowAnyHeader()
+                  .AllowAnyMethod();
+        });
+});
+
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -44,6 +55,8 @@ app.UseMiddleware<VehicleExplorer.API.Middleware.ExceptionHandlingMiddleware>();
 app.UseCors("AllowAngularClient");
 
 app.UseHttpsRedirection();
+
+app.UseCors("AllowAngular");
 
 app.UseAuthorization();
 
