@@ -72,7 +72,7 @@ VehicleExplorer
 Before running the project, make sure you have:
 
 - .NET 8 SDK
-- Node.js 18 or later
+- Node.js 20 or later
 - Angular CLI
 - Docker Desktop
 
@@ -91,7 +91,7 @@ npm install -g @angular/cli
 ```bash
 cd VehicleExplorer.API
 
-dotnet run --launch-profile https
+dotnet run --project VehicleExplorer.API
 ```
 
 Swagger:
@@ -172,6 +172,20 @@ http://localhost:8080/swagger
 - The frontend is served using Nginx inside Docker.
 
 ---
+
+## Live Demo
+
+Frontend
+
+```
+http://16.170.222.124:4200
+```
+
+Swagger
+
+```
+http://16.170.222.124:8080/swagger
+```
 
 ## Author
 
